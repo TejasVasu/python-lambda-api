@@ -10,6 +10,3 @@
 
 ## Deploying code
 - Configure AWS CLI: ```aws configure```.
-
-## URL
--  Base URL: https://ezaizkdjx3.execute-api.us-east-1.amazonaws.com/dev/
