@@ -8,7 +8,10 @@
 - Install npm serverless: ```npm install -g serverless``` (https://www.npmjs.com/package/serverless)
 - Install AWS CLI: [steps](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 - Serverless Offline ```npm install serverless-offline --save-dev```
-- serverless plugin ``serverless plugin install -n serverless-python-requirements"``
+- Install pip:
+  - Install pip: ```python3 -m ensurepip --upgrade```
+  - Verify Installation: ```pip3 --version```
+- Run this command to install required python packages: ```pip3 install -r requirements.txt```
 
 ## Deploying and testing code
 - Configure AWS CLI: ```aws configure```
@@ -17,4 +20,7 @@
 
 ## Debugging/Common issues
 - If sls offline is already running on port, err msg: ```{ Error: listen EADDRINUSE: address already in use ::1:3002```. Then list the processes in that port: ```lsof -i tcp:<port number```, then kill the node process running: ```kill -9 <PID>```.
-- 
+
+## TODO:
+- Unit test
+- Adding auth, bearer token (can implement basic version)

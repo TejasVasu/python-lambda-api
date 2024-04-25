@@ -5,23 +5,20 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: python3.9
-#  iamRoleStatements:
-#    - Effect: Allow
-#      Action:
-#        - dynamodb:DescribeTable
-#        - dynamodb:Query
-#        - dynamodb:Scan
-#        - dynamodb:GetItem
-#        - dynamodb:PutItem
-#        - dynamodb:UpdateItem
-#        - dynamodb:DeleteItem
-#      Resource:
-#        - MyDynamoDBTable
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:PutItem
+        - dynamodb:GetItem
+        - dynamodb:DeleteItem
+      Resource: ""
+
+package:
+  exclude:
+    - node_modules/**
 
 plugins:
   - serverless-offline
-  - serverless-python-requirements
-
 custom:
   dynamoTableName: dynamo-test-table
 
@@ -36,6 +33,10 @@ functions:
       - http:
           path: /health/dynamo
           method: get
+          cors: true
+      - http:
+          path: /health/putitem
+          method: put
           cors: true
 #      - http:
 #          path: /{proxy+}
